@@ -1,0 +1,19 @@
+<div class="cregister">
+<!-- formulario de registro -->
+<form [formGroup]="Formr" class="text-center border border-light p-5" >
+    <p class="h4 mb-4">Registrate</p>
+    <!-- Nombre -->
+    <input type="text" class="form-control mb-4" formControlName="Nombre" required placeholder="Nombre">
+    <!-- Correo -->
+    <input type="email" class="form-control mb-4" formControlName="Correo" required placeholder="Correo">
+    <!-- Contraseña -->
+    <input type="password" class="form-control mb-4" formControlName="Clave" required placeholder="Contraseña">
+    <!-- Numero de telefono -->
+    <input type="number" class="form-control" formControlName="numeroTelefono" placeholder="Numero de telefono">
+    <br>
+    <!-- Boton Registrarse -->
+    <button class="btn btn-info btn-block" type="submit" (click)="GuardarDatosLogin()">Registrarte</button>
+    <br><br>
+    <h6>Ya tienes cuenta<a>Inicia Secion</a></h6>
+</form>
+</div>

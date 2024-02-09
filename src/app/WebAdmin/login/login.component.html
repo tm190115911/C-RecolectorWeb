@@ -1,0 +1,21 @@
+<!-- Formulario Iniciar Secion -->
+<div class="clogin">
+<form [formGroup]="Form" class="text-center border border-light p-5" action="#!" >
+    <p class="h4 mb-4">Iniciar Seccion</p>
+    <!-- Correo -->
+    <input type="email" name="Correo" formControlName="Correo" class="form-control mb-4" placeholder="Correo">
+    <!-- Contraseña -->
+    <input type="password" name="Clave" formControlName="Clave" class="form-control mb-4" placeholder="Contraseña">
+    <!-- Recordar contraseña 
+    <div class="custom-control custom-checkbox">
+        <br>
+        <input type="checkbox" class="custom-control-input" formControlName="recordarContrasena">
+        <label class="custom-control-label">Recordar contraseña</label> 
+    </div> -->
+    <!-- Boton Para iniciar seccion -->
+    <button class="btn btn-info my-4 btn-block" type="submit" (click)="ngOnLogin()">Iniciar Sesión</button>
+    <br>
+    <h6>Olvidaste tu contraseña <a href="">Recuperar contraseña</a></h6>
+   <!-- <h6>Aun no tienes cuenta? Clic en el siguiente enlace para <a routerLink="../register">Registrarse</a></h6> -->
+</form>
+</div>

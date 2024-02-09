@@ -1,0 +1,130 @@
+.CHome{
+    margin: 0 5%;
+}
+    /* Estilos para pantallas grandes */
+  @media (min-width: 992px) {
+    /*cabecera */
+    .text-center {
+      text-align: center;
+    }
+    /*tabla */
+    .table {
+      width: 80%;
+      margin: 0 auto;
+    }
+    /*contenedor rutas */
+    .rutas{
+        width: 80%;
+        margin: 0 auto; 
+    }
+    /*lista contenedores */
+    .ListaRutas {
+      width: 50%;
+      float: left;
+    }  
+    /*imágenes de ruta */
+    .imgRutas {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+    } 
+    /*información de rutas */
+    .imgInfoRutas {
+        max-width: 100%;
+    }
+    /* avisos */
+    .CAvTar {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    /* Estilos para los contenedores */
+    .imgContenedores {
+      width: 50%;
+      margin: 0 auto;
+    }
+    
+    /* Estilos para la información de contenedores */
+    .InfoContenedor {
+      width: 50%;
+      margin: 0 auto;
+    }
+  }
+  
+  /* Estilos para pantallas medianas */
+  @media (min-width: 768px) and (max-width: 991px) {
+    /* Estilos para la cabecera */
+    .text-center {
+      text-align: center;
+    }
+    
+    /* Estilos para la tabla */
+    .table {
+      width: 90%;
+      margin: 0 auto;
+    }
+    
+    /* Estilos para la lista de rutas */
+    .ListaRutas {
+      width: 70%;
+      margin: 0 auto;
+    }
+    
+    /* Estilos para las imágenes de rutas */
+    .imgRutas {
+      width: 70%;
+      margin: 0 auto;
+    }
+    
+    /* Estilos para la información de rutas */
+    .imgInfoRutas {
+      width: 70%;
+      margin: 0 auto;
+    }
+    
+    /* Estilos para los avisos */
+    .CAvTar {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    
+    /* Estilos para los contenedores */
+    .imgContenedores {
+      width: 70%;
+      margin: 0 auto;
+    }
+    
+    /* Estilos para la información de contenedores */
+    .InfoContenedor {
+      width: 70%;
+      margin: 0 auto;
+    }
+  }
+  
+  /* Estilos para pantallas pequeñas */
+  @media (max-width: 767px) {
+    /* Estilos para la cabecera */
+    .text-center {
+      text-align: center;
+    }
+    
+    /* Estilos para la tabla */
+    .table {
+      width: 100%;
+      margin: 0 auto;
+    }
+    
+    /* Estilos para la lista de rutas */
+    .ListaRutas {
+      width: 90%;
+      margin: 0 auto;
+    }
+}
+
+.btn-right {
+  float: right;
+  margin-left: 10px;
+}

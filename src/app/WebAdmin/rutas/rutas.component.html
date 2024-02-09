@@ -1,0 +1,123 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <h3 class="text-center">Rutas</h3>
+    <form [formGroup]="FormRutas" class="formularioRutas">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="label-input">
+                        <label>id</label>
+                        <input type="text" placeholder="id" class="mb-3 form-control" name="id_rutas" formControlName="id_rutas">
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="label-input">
+                        <label>Ruta (nombre)</label>
+                        <select class="form-control ruta-input" name="nombreRuta" formControlName="nombreRuta"  (change)="generarId()">
+                            <option value="1">Ruta 1</option>
+                            <option value="2">Ruta 2</option>
+                            <option value="3">Ruta 3</option>
+                            <option value="4">Ruta 4</option>
+                            <option value="5">Ruta 5</option>
+                            <option value="6">Ruta 6</option>
+                            <option value="7">Ruta 7</option>
+                            <option value="8">Ruta 8</option>
+                            <option value="9">Ruta 9</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="label-input">
+                        <label>Dias</label>
+                        <input type="text" class="form-control" name="dias" formControlName="dias">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="label-input">
+                        <label>Zonas de recoleccion</label>
+                        <input type="text" class="form-control" name="zonasRecoleccion"
+                            formControlName="zonasRecoleccion"  (change)="generarId()">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="label-input">
+                        <label>Foto</label>
+                        <input type="file" (change)="archivoSeleccionado($event)" class="form-control" accept="image/*"
+                            name="foto" formControlName="foto">
+                    </div>
+                </div>
+            </div>
+            <!-- botones añadir y editar -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="btn-group-container">
+                        <button type="submit" class="btn btn-success btn-block mi-boton-estilo text-center"
+                            (click)="opcRutas('añadir')">Añadir</button>
+                        <div *ngIf="seleccionado">
+                            <button type="submit" class="btn btn-primary btn-block mi-boton-estilo text-center"
+                                (click)="opcRutas('editar')">Modificar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+<div class="row justify-content-center CArRu">
+    <div class="col-lg-4 mb-3" *ngFor="let element of ORutas">
+        <div class="card mb-4">
+            <div class="card-body">
+                <img [src]="element.foto" alt="Imagen no disponible" class="imgRutas card-img-top">
+                <h3 class="card-title text-center">{{ element.nombre }}</h3>
+                <p class="card-subtitle">Dias: {{ element.dias }}</p>
+                <p class="card-text">Zonas de Recoleccion: {{ element.zonasRecoleccion }}</p>
+            </div>
+            <div class="card-footer d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary col-md-6"
+                    (click)="seleccionarFila(element)">Seleccionar</button>
+                <button type="submit" class="btn btn-danger col-md-6"
+                    (click)="opcRutas('eliminar', element.id_rutas)">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button type="submit" class="btn btn-primary btn-sm botonhabilitar mr-1" 
+(click)="habilitarIdHorario()">Habilitar el id para poder escribir</button>
+<br>
+<button type="submit" class="btn btn-danger btn-sm botonhabilitar mr-1" 
+(click)="LimpiarTrutatr()">Limpiar tabla donde se guardan las ubicaciones del camion recolector</button>
+
+<div id="base">
+    <hr>
+</div>
+
+
+
+<!--<div class="row">
+    <div class="imgRutas">
+        <h3 class="text-center">Ruta 1</h3>
+        <img src="/assets/img/Imagen1.png" class="mx-auto d-block" alt="Ruta 1">
+        <p>Inicio de ruta: </p>
+        <p>Fin de ruta: </p>
+        <p>Encargado de la ruta: </p>
+        <button>Editar</button>
+        <button>Eliminar</button>
+    </div>
+    <div class="imgInfoRutas">
+        <h3 class="text-center">Ruta 2</h3>
+        <img src="/assets/img/Imagen1.png" class="mx-auto d-block" alt="Ruta 1">
+        <p>Inicio de ruta: </p>
+        <p>Fin de ruta: </p>
+        <p>Encargado de la ruta: </p>
+        <button>Editar</button>
+        <button>Eliminar</button>
+    </div>
+</div>-->
+
+<div class="pie"></div>
+
+<app-footer></app-footer>

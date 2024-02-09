@@ -1,0 +1,94 @@
+#map {
+    height: 300px;
+    width: 100%;
+  }
+/* Contenedor form */
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+/* Contenedor card */
+.CArCo {
+    margin: 1% auto;
+    max-width: 1200px;
+}
+
+/* Estilos para el formulario */
+.formularioContenedores {
+    margin-top: 20px;
+}
+
+.label-input label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    border-radius: 10px;
+}
+
+/* diseño botones formulario*/
+.mi-boton-estilo {
+    margin-right: 10px;
+    border-radius: 20px;
+    font-size: 1.1rem;
+}
+
+.btn-group-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Estilos para las tarjetas */
+.card {
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.card-subtitle {
+    font-size: 1.2rem;
+    text-align: justify;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: #555;
+    text-align: justify;
+}
+
+.card-link {
+    text-decoration: underline;
+}
+
+.imgContenedores {
+    border-radius: 10px;
+}
+
+/*botones card*/
+.card-footer button {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.botonhabilitar {
+    display: block;
+    margin: 0 auto;
+  }
+
+#base {
+    clear: both;
+}

@@ -1,0 +1,95 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <h3 class="text-center">Avisos</h3>
+  <!-- Añadir un nuevo aviso formulario -->
+  <form [formGroup]="FormAvisos" class="formularioAviso">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-2">
+          <div class="label-input">
+            <label>id</label>
+            <input type="text" placeholder="id" id="id_aviso" class="form-control id-input" name="id_aviso" formControlName="id_aviso">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="label-input">
+            <label>Titulo</label>
+            <input type="text" class="form-control titulo-input" name="titulo" formControlName="titulo">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="label-input">
+            <label>Descripción</label>
+            <input type="text" class="form-control descripcion-input" name="descripcion" formControlName="descripcion">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="label-input">
+            <label>Fecha</label>
+            <input type="date" class="form-control fecha-input" name="fecha" formControlName="fecha">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="label-input">
+            <label>Hora</label>
+            <input type="time" class="form-control hora-input" name="hora" formControlName="hora">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="label-input">
+            <label>Foto</label>
+            <input type="file" (change)="archivoSeleccionado($event)" 
+            class="form-control foto-input" accept="image/*"
+            name="foto" formControlName="foto">
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="btn-group-container">
+            <button type="submit" class="btn btn-success btn-block mi-boton-estilo text-center"
+              (click)="opcAvisos('añadir')">Añadir</button>
+            <div *ngIf="seleccionado">
+              <button type="submit" class="btn btn-primary btn-block mi-boton-estilo text-center"
+                (click)="opcAvisos('editar')">Modificar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </form>
+</div>
+
+<!-- Tarjetas de avisos -->
+<div class="row justify-content-center CArAv">
+  <div class="col-md-4 mb-3" *ngFor="let element of Oavisos">
+    <div class="card">
+      <div class="card-body">
+        <img [src]="element.foto" alt="Imagen no disponible" class="imgAvisos card-img-top">
+        <h5 class="card-title">{{ element.titulo }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ element.descripcion }}</h6>
+        <p class="card-text">Hora: {{ element.hora }} Fecha: {{ element.fecha }}</p>
+      </div>
+      <div class="card-footer d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary col-md-6" (click)="seleccionarFila(element)">Seleccionar</button>
+        <button type="submit" class="btn btn-danger col-md-6"
+          (click)="opcAvisos('eliminar', element.id_aviso)">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button type="submit" class="btn btn-primary btn-sm botonhabilitar mr-1" 
+(click)="habilitarIdHorario()">Habilitar el id para poder escribir</button>
+
+<div id="base">
+  <hr>
+</div>
+
+<app-footer></app-footer>
