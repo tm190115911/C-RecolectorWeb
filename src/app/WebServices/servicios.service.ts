@@ -8,13 +8,15 @@ import { contenedores } from '../Modelos/contenedores';
 import { rutas } from '../Modelos/rutas';
 import { RE } from '../Modelos/RE';
 import { frases } from '../Modelos/frases';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiciosService {
   private headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
-  private api = 'http://localhost/be_recolector.local/public';
+  private api = environment.api;
+  //private api = 'http://localhost/be_recolector.local/public';
 
   constructor(private http: HttpClient) { }
   ////////////////////////////////// Login //////////////////////////////////
