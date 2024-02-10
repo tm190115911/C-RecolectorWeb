@@ -1,0 +1,83 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <h3 class="text-center">Contenedores</h3>
+  <!-- Añadir un nuevo contenedor formulario -->
+  <form [formGroup]="FormContenedores" class="formularioContenedores">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-2">
+          <div class="label-input">
+          <label>id</label>
+          <input type="text" placeholder="id" class="form-control" name="id_contenedor" formControlName="id_contenedor">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="label-input">
+          <label>Contenedor (nombre)</label>
+          <input type="text" class="form-control" name="nombre" formControlName="nombre" (change)="generarId()">
+        </div>
+        </div> 
+        <div class="col-md-4">
+          <div class="label-input">
+          <label>Ubicacion</label>
+          <input type="text" class="form-control" name="LatitudLongitud" formControlName="LatitudLongitud">
+        </div>
+        </div>
+        <div class="col-md-4">
+          <div class="label-input">
+          <label>foto</label>
+          <input type="file" (change)="archivoSeleccionado($event)" class="form-control" accept="image/*" name="foto" formControlName="foto">
+        </div>
+        </div>
+        <div class="col-md-8">
+          <div class="label-input">
+          <label>Descripcion</label>
+          <textarea type="textarea" class="form-control" name="descripcion" formControlName="descripcion"></textarea>
+        </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="btn-group-container">
+          <button type="submit" class="btn btn-success btn-block mi-boton-estilo text-center" (click)="opcContenedores('añadir')">Añadir</button>
+        <div *ngIf="seleccionado">
+          <button type="submit" class="btn btn-primary btn-block mi-boton-estilo text-center" (click)="opcContenedores('editar')">Modificar</button>
+        </div>
+        </div>
+        </div>
+      </div>
+ 
+
+    </div>
+  </form>
+</div>
+
+
+<div class="row justify-content-center CArCo">
+  <div class="col-lg-4" *ngFor="let element of OContenedores">
+    <div class="card">      
+      <div class="card-body">
+        <img [src]="element.foto" alt="imagen no disponoble" class="card-img-top">
+        <h3 class="card-title">{{ element.nombre }}</h3>
+        <p class="card-subtitle mb-2 text-muted">Descripcion: {{ element.descripcion }}</p>
+        <p class="card-subtitle mb-2 text-muted">Ubicacion: {{ element.ubicacion }}</p>
+        <p class="card-text">Horario: De 11:00 am - 7:00 pm</p>
+      </div>
+      <div class="card-footer d-flex justify-content-center">
+        <button type="submit" class="btn btn-danger col-md-6" (click)="opcContenedores('eliminar',element.id_contenedor)">Eliminar</button>
+        <button type="submit" class="btn btn-primary col-md-6" (click)="seleccionarFila(element)">Seleccionar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button type="submit" class="btn btn-primary btn-sm botonhabilitar mr-1" 
+(click)="habilitarIdHorario()">Habilitar el id para poder escribir</button>
+
+<div id="base">
+  <hr>
+</div>
+
+
+<app-footer></app-footer>

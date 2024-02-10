@@ -1,0 +1,104 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <h3 class="text-center">Horarios</h3>
+  <form [formGroup]="FormHorarios" class="formularioHorarios">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-2 mb-3 col-lg-2" >
+          <div class="label-input">
+            <label>id</label>
+            <input type="text"  id="id_horario" class="form-control id-input" name="id_horario" placeholder="id"
+              formControlName="id_horario">
+          </div>
+        </div>
+        <div class="col-sm-5 mb-3 col-lg-2">
+          <div class="label-input">
+            <label>Turno Ruta</label>
+            <select class="form-control turno-input" name="turno" formControlName="turno">
+              <option value="1">Matutino</option>
+              <option value="2">Vespertino</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-5 mb-3 col-lg-5">
+          <div class="label-input">
+            <label>Zona</label>
+            <select class="form-control zona-input" name="zona" formControlName="zona">
+              <option *ngFor="let zonas of OhorariosZ" [value]="zonas.Id_zona"> {{ zonas.nombreZona }} </option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6 mb-3 col-lg-3" >
+          <div class="label-input">
+            <label>Dias</label>
+            <input type="text" class="form-control dia-input" name="dias" formControlName="dias">
+          </div>
+        </div>
+        <div class="col-sm-6 mb-3 col-lg-3">
+          <div class="label-input">
+            <label>Horario</label>
+            <input type="text" class="form-control horario-input" name="horario" formControlName="horario">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="btn-group-container">
+            <button type="submit" class="btn btn-success btn-lg btn-block mi-boton-estilo text-center"
+              (click)="opcHorarios('añadir')">Añadir</button>
+            <div *ngIf="seleccionado">
+              <button type="submit" class="btn btn-dark text-light btn-lg btn-block mi-boton-estilo text-center"
+                (click)="opcHorarios('editar')">Editar</button>
+              <button type="submit" class="btn btn-danger btn-lg btn-block mi-boton-estilo text-center" 
+              (click)="Limpiar()">Limpiar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </form>
+
+
+<!-- tabla -->
+<div class="table-responsive">
+<table class="table table-striped margenSuperior">
+  <thead>
+    <tr>
+      <th colspan="8" class="text-center">TABLA HORARIOS</th>
+    </tr>
+    <tr>
+      <th scope="col">Turno Ruta</th>
+      <th scope="col">Zona</th>
+      <th scope="col">Dias</th>
+      <th scope="col">Horario</th>
+      <th scope="col">Opciones</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let element of Ohorarios">
+    <tr>
+      <td>{{ element.Turno}}</td>
+      <th>{{ element.nombreZona }}</th>
+      <td>{{ element.dias }}</td>
+      <td>{{ element.horario }}</td>
+      <td class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary btn-sm mi-boton-estilo mr-1"
+          (click)="seleccionarFila(element)">Seleccionar</button>
+        <button type="submit" class="btn btn-danger btn-sm mi-boton-estilo"
+          (click)="eliminarHorario(element.id_horario)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+<button type="submit" class="btn btn-primary btn-sm botonhabilitar mr-1" 
+(click)="habilitarIdHorario()">Habilitar el id para poder escribir</button>
+
+<div id="base">
+  <hr>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,100 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8" *ngFor="let element of ORE; let i = index">
+      <div class="card mb-4" [ngClass]="{'bg-light': i % 2 === 0, 'bg-lighter': i % 2 !== 0}">
+        <!-- Información del Domicilio -->
+        <div class="card-header">
+          <h4 class="card-title">Información del lugar de recoleccion</h4>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="font-weight-bold">Tipo de domicilio: </label>
+                <span>{{ element.tipoLugar }}</span>
+              </div>
+              <div class="form-group">
+                <label class="font-weight-bold">Calle: </label>
+                <span>{{ element.nombreCalle }}</span>
+              </div>
+              <div class="form-group">
+                <label class="font-weight-bold">Entre qué calles: </label>
+                <span>{{ element.entreCalles }}</span>
+              </div>
+              <div class="form-group">
+                <label class="font-weight-bold">Número Interior: </label>
+                <span>{{ element.numeroInterior }}</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="font-weight-bold">Número Exterior: </label>
+                <span>{{ element.numeroExterior }}</span>
+              </div>
+              <div class="form-group">
+                <label class="font-weight-bold">Colonia: </label>
+                <span>{{ element.colonia }}</span>
+              </div>
+              <div class="form-group">
+                <label class="font-weight-bold">Código Postal: </label>
+                <span>{{ element.codigoPostal }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Información Personal -->
+      <div class="card mb-4" [ngClass]="{'bg-light': i % 2 === 0, 'bg-lighter': i % 2 !== 0}">
+        <div class="card-header">
+          <h4 class="card-title">Información de contacto del solicitante</h4>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="font-weight-bold">Nombre completo: </label>
+                <span>{{ element.nombreSolicitante }}</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="font-weight-bold">Número de teléfono: </label>
+                <span>{{ element.numeroTelefono }}</span>
+              </div>
+              <div class="form-group">
+                <label class="font-weight-bold">Correo electrónico: </label>
+                <span>{{ element.correoElectronico }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Información sobre los Residuos -->
+      <div class="card mb-4" [ngClass]="{'bg-light': i % 2 === 0, 'bg-lighter': i % 2 !== 0}">
+        <div class="card-header">
+          <h4 class="card-title">Información sobre los Residuos</h4>
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+            <label class="font-weight-bold">Tipo de Residuos: </label>
+            <span>{{ element.tipoMaterial }}</span>
+          </div>
+          <div class="form-group">
+            <label class="font-weight-bold">Descripción: </label>
+            <span>{{ element.descripcion }}</span>
+          </div>
+          <div class="form-group">
+            <label class="font-weight-bold">Foto: </label>
+            <br>
+            <img src="{{ element.foto }}" alt="Foto" class="img-fluid rounded">
+          </div>
+        </div>
+      </div>
+      <div><hr style="border: 4px solid;"><br></div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

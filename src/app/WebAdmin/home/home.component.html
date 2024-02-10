@@ -1,0 +1,134 @@
+<app-navbar></app-navbar>
+<div class="CHome">
+  <h3>Bienvenido</h3>
+                                      <!--   Frases   -->
+  <div class="frases">
+    <form [formGroup]="FormFrases" class="formularioFrases">
+      <h3 class="text-center">Frases</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="label-input">
+            <label>Frase</label>
+            <input type="text" class="form-control frase-input" name="frase" formControlName="frase">
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="label-input">
+            <label>Autor</label>
+            <input type="text" class="form-control autor-input" name="autor" formControlName="autor">
+          </div>
+        </div>
+      </div>
+      
+      <button type="submit" (click)="opcFrases('añadir')" class="btn btn-success btn-block mi-boton-estilo text-center">Añadir</button>
+      <div>
+        <button type="submit" (click)="opcFrases('editar')" class="btn btn-primary btn-block mi-boton-estilo text-center">Modificar</button>
+      </div>
+  </form>
+
+  <div class="row justify-content-center CArAv">
+    <div class="col-md-4 mb-3" *ngFor="let element of Ofrases">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ element.frase }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ element.autor }}</h6>
+        </div>
+        <div class="card-footer d-flex justify-content-center">
+          <button type="submit" (click)="seleccionarFila(element)" class="btn btn-primary col-md-6" >Seleccionar</button>
+          <button type="submit" (click)="opcFrases('eliminar', element.id)" class="btn btn-danger col-md-6" >Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--  Previsualizacion de la informacion   -->
+<h3>Horario</h3><button class="btn-right" (click)="mostrarHorarios()">{{showHorarios ? 'Ocultar' : 'Mostrar'}}</button>
+  <hr>
+  <!-- ///////////////////// HORARIOS ///////////////////// -->
+  <table class="table table-striped margenSuperior" *ngIf="showHorarios">
+    <thead>
+      <tr>
+        <th colspan="8" class="text-center">HORARIOS</th>
+      </tr>
+      <tr>
+        <th scope="col">Turno Ruta</th>
+        <th scope="col">Zona</th>
+        <th scope="col">Dias</th>
+        <th scope="col">Horario</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let element of Ohorarios">
+      <tr>
+        <td>{{ element.Turno}}</td>
+        <th>{{ element.nombreZona }}</th>
+        <td>{{ element.dia }}</td>
+        <td>{{ element.horario }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Avisos</h3><button class="btn-right" (click)="mostrarAvisos()">{{showAvisos ? 'Ocultar' : 'Mostrar'}}</button>
+  <hr>
+  <!-- //////////////////// AVISOS //////////////////// -->
+  <div class="row CAvTar" *ngIf="showAvisos">
+    <div class="card col-3" *ngFor="let element of Oavisos">
+      <div class="card-body">
+        <img src="{{ element.foto }}" class="card-img-top">
+        <h5 class="card-title">{{ element.titulo }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ element.descripcion }}</h6>
+        <p>Hora: {{ element.hora }} Fecha: {{ element.fecha }}</p>
+      </div>
+    </div>
+  </div>
+  <h3>Rutas</h3><button class="btn-right" (click)="mostrarRutas()">{{showRutas ? 'Ocultar' : 'Mostrar'}}</button>
+  <hr>
+  <!-- ///////////////////// RUTAS ///////////////////// -->
+  <div class="rutas" *ngIf="showRutas">
+    <div class="ListaRutas">
+      <h3>Selecciona la ruta que deseas: </h3>
+      <h4><a href="">Ruta 1</a></h4>
+      <h4><a href="">Ruta 2</a></h4>
+      <h4><a href="">Ruta 3</a></h4>
+      <h4><a href="">Ruta 4</a></h4>
+      <h4><a href="">Ruta 5</a></h4>
+    </div>
+    <div class="imgRutas">
+      <h3 class="text-center">Ruta 1</h3>
+      <img src="/assets/img/Imagen1.png" class="mx-auto d-block" alt="Ruta 1">
+      <div class="imgInfoRutas">
+        <p>Inicio de ruta: </p>
+        <p>Fin de ruta: </p>
+        <p>Encargado de la ruta: </p>
+        <button>Editar</button>
+        <button>Eliminar</button>
+      </div>
+    </div>
+  </div>
+  <h3>Contenedores</h3><button class="btn-right" (click)="mostrarContenedores()">{{showContenedores ? 'Ocultar' :
+    'Mostrar'}}</button>
+  <hr>
+  <!-- ///////////////////// CONTENEDORES ///////////////////// -->
+  <div class="contenedores" *ngIf="showContenedores">
+    <div class="ListaContenedores">
+      <h3>Selecciona el contenedor: </h3>
+      <h4><a href="">Contenedor 1</a></h4>
+      <h4><a href="">Contenedor 2</a></h4>
+      <h4><a href="">Contenedor 3</a></h4>
+      <h4><a href="">Contenedor 4</a></h4>
+      <h4><a href="">Contenedor 5</a></h4>
+    </div>
+    <div class="imgContenedores">
+      <h3 class="text-center">Contenedor 1</h3>
+      <img src="/assets/img/Contenedores.png" class="mx-auto d-block" alt="">
+    </div>
+    <div class="InfoContenedor">
+      <p>Nombre del contenedor: </p>
+      <p>Descripcion: </p>
+      <p>Ubicacion: </p>
+      <button>Editar</button>
+      <button>Eliminar</button>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

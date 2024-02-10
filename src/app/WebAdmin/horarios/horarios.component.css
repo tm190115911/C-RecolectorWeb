@@ -1,0 +1,50 @@
+/* Contenedor form */
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+/* Estilos para el formulario */
+.formularioAviso {
+  margin-top: 20px;
+}
+
+.label-input label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  border-radius: 10px;
+}
+
+/* diseño botones formulario*/
+.mi-boton-estilo {
+  margin-right: 10px;
+  border-radius: 20px;
+  font-size: 1.1rem;
+}
+
+.btn-group-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* margen superior de la tabla */
+.margenSuperior {
+  margin-top: 8px;
+}
+
+.botonhabilitar {
+  display: block;
+  margin: 0 auto;
+}
+/* base */
+#base {
+  clear: both;
+}

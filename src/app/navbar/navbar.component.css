@@ -1,0 +1,18 @@
+a{
+    color: black;
+}
+.CentrarNavbar{
+    display: flex;
+    justify-content: center;
+    vertical-align: auto;
+    margin: 0;
+}
+.CentrarNavbar > ul > li > a{
+    color: black;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.navbar-nav .nav-item.active {
+    color: #294add;
+    font-weight: bold;
+}
